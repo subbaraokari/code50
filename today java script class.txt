@@ -1,0 +1,73 @@
+const person = {
+    pid: 1,
+    name: 'Suresh',
+    address: 'Chennai'
+};
+console.log(person['pid'] + "\t" + person.name + "\t" + person.address);
+
+const acct = {
+    acctno: 1234,
+    name: 'Suresh',
+    bal: 50000,
+    withDrawl: function (amt) {
+        this.bal = this.bal - amt;
+    },
+    deposit: function (amt) {
+        this.bal = this.bal + amt;
+    },
+    balEnq: function () {
+        return this.bal;
+    }
+};
+acct.deposit(30000);
+acct.withDrawl(2000);
+console.log(acct.balEnq());
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="app.js" defer></script>
+    <style>
+      #recipes {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="recipes">
+      
+    </div>
+  </body>
+</html>
+-----------------------
+let recipes = [
+    { id: 1, name: 'Pizza', description: 'sndsagd  sduasgdu uhd uashd', imageUrl: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGl6emF8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
+    { id: 2, name: 'Burger', description: 'sndsagd  sduasgdu uhd uashd', imageUrl: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
+    { id: 3, name: 'Sandwitch', description: 'sndsagd  sduasgdu uhd uashd', imageUrl: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGl6emF8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' }
+];
+const recipesDiv = document.getElementById('recipes');
+recipes.forEach(recipe => {
+    let recipeDiv = document.createElement('div');
+    recipeDiv.style.border = '1px solid green';
+    recipeDiv.style.margin = '12px'
+    recipeDiv.style.padding = '12px';
+    let h2 = document.createElement('h2');
+    let img = document.createElement('img');
+    let p = document.createElement('p');
+    h2.textContent = recipe.name;
+    h2.style.textAlign = 'center';
+    p.textContent = recipe.description;
+    img.src = recipe.imageUrl;
+    img.alt = recipe.name
+    img.style.width = '200px';
+    img.style.height = '200px';
+    recipeDiv.append(h2);
+    recipeDiv.append(img);
+    recipeDiv.append(p);
+    recipesDiv.append(recipeDiv);
+});
+
+
